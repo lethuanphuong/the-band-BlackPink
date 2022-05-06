@@ -41,9 +41,18 @@ html {
  top: 0;
  left: 0;
  right: 0;
- z-index: 1;
+ z-index: 2;
 }
-
+.bar{
+    color: #fff;
+    display: none;
+}
+.bar:hover{
+    cursor: pointer;
+}
+.wrap-nav{
+    display: block;
+}
 #nav {
     display: inline-block;
 }
@@ -104,8 +113,10 @@ html {
 }
 
 #header .search-btn {
-    float: right;
     padding: 0 21px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #header .search-icon {
@@ -118,15 +129,43 @@ html {
     cursor: pointer;
     
 }
-
-#slider {
+.owl-carousel {
     margin-top: 46px;
-    position: relative;
 }
-
-#slider #img {
-    width :100%;
-    height : 730px;
+.owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    height: 736px;
+}
+.owl-dots{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+.owl-theme .owl-dots .owl-dot span{
+    border: 1px solid #fff;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+.owl-theme .owl-dots .owl-dot.active span, 
+.owl-theme .owl-dots .owl-dot:hover span{
+    background-color: aqua;
+}
+.owl-nav button.owl-prev{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 100px !important;
+}
+.owl-nav button.owl-next{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 100px !important;
 }
 #content {
 
@@ -167,23 +206,127 @@ html {
     text-align: center;
 }
 #content .members-item {
-    width : 140px;
-    height: 210px;
+    /* width : 140px; */
+    /* height: 210px; */
     display: inline-block;
-    width:24%;
+    /* width:24%; */
 }
 
 #content .members-item img {
-    width :95%;
+    width :170px;
     height: 160px;
     margin-top: 15px;
 }
-#content .members-item img:hover{
+#content .members-item:hover{
     opacity: 0.6;
     cursor: pointer;
 }
 .text-while{
     color: #fff !important;
+}
+.modal-member-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.1);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transform-origin: bottom;
+    animation: modalmember ease .1s;
+}
+.member-jisoo{
+    display: none;
+}
+.member-detail{
+    background-color: #fff;
+    width: 80%;
+    min-height: 92%;
+    margin: auto;
+    transform: translateY(8%);
+    position: relative;
+}
+.member-detail-left{
+    background-color: #f8f9fa;
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.member-detail-name{
+    text-align: center;
+    margin: 5px;
+}
+.member-detail-img{
+    width: 90%;
+    margin:auto;
+    display: flex;
+    height: 24%;
+}
+.img-decription{
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.infor{
+    display: flex;
+    margin-bottom: 5px;
+}
+.infor-title{
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+.infor-left{
+    font-size: 12px;
+    margin-left: 2px;
+    width: 46px;
+    font-weight: 600;
+}
+.signature{
+    width: 65%;
+    height: 14%;
+    margin: auto;
+    display: flex;
+}
+.infor-right{
+    font-size: 12px;
+    margin-left: 30px;
+}
+.wrap-detail-right{
+    margin-top: 42px;
+}
+.member-detail-right{
+    position: absolute;
+    left: 210px;
+    text-align: justify;
+    padding-right: 10px;
+}
+.member-detail-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-color: #f6442e;
+    border-radius: 4px;
+}
+.member-detail-close:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.member-detail-right-title{
+    font-weight: 700;
+    margin: 15px 0;
+}
+.member-detail-right-context{
+
 }
 #content .tour-section {
     background-color: #000;
@@ -263,6 +406,7 @@ html {
     padding : 11px 16px;
 }
 .place-buy-btn:hover{
+    cursor: pointer;
     background-color:#ccc;
     color : #000;
 }
@@ -295,6 +439,7 @@ html {
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .modal.open{
@@ -413,6 +558,7 @@ html {
     color: #fff;
 }
 .form-submit-btn:hover{
+    cursor: pointer;
     color: #000;
     background-color: #ccc;
 }
@@ -424,6 +570,158 @@ html {
     to {
         opacity: 1;
         transform: translateY(0px)
+    }
+}
+@keyframes modalmember {
+    from {
+        opacity: 0;
+        transform: scale(0)
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+@media screen and (max-width: 1239px) {
+    .owl-carousel .owl-item img {
+        height: 644px;
+    }
+    #content .content-section {
+        width: auto;
+    }
+    #content .about-text {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #content .about-text {
+    margin-top: 25px;
+    font-size: 15px;
+    text-align: justify;
+    line-height: 1.4;
+    margin-left: 10px;
+    margin-right: 10px;
+    }
+    #content .members {
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .place-time {
+        padding: 10px 0;
+    }
+    #content .context {
+        padding: 12px 0;
+    }
+    .contact-content {
+        margin: 0 10px;
+    }
+    .member-detail-right-context {
+        font-size: 11px;
+    }
+}
+@media screen and (max-width: 739px) {
+    .wrap-nav {
+        display: none;
+    }
+    #nav {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        background-color: blanchedalmond;
+        position: absolute;
+        left: 5%;
+        top: 12px;
+    }
+    #nav >li >a {
+        color: black;
+        font-weight: 600;
+    }
+    #nav .subnav {
+        display: none;
+        min-width: 160px;
+        position: absolute;
+        top: 20%;
+        left: 100%;
+        background-color: blanchedalmond;
+        box-shadow: 0 0 10px #ccc;
+    }
+    .bar{
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .owl-carousel .owl-item img {
+        height: 320px;
+    }
+    .owl-theme .owl-dots .owl-dot span {
+        width: 15px;
+        height: 15px;
+    }
+    #content .members {
+        flex-direction: column;
+    }
+    #content .members-item {
+        margin: auto;
+    }
+    #content .members-name {
+        margin-top: 12px;
+    }
+    #content .places-list {
+        display: flex;
+        flex-direction: column;
+    }
+    #content .places-item {
+        width: 100%;
+    }
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .col-half {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .member-detail-left {
+        width: 120px;
+    }
+    .member-detail-name {
+        font-size: 14px;
+    }
+    .member-detail-img {
+        height: 15%;
+    }
+    .img-decription {
+        font-size: 8px;
+    }
+    .infor {
+        flex-direction: column;
+    }
+    .infor-left {
+        font-size: 10px;
+    }
+    .infor-right {
+        font-size: 9px;
+        margin-left: 12px;
+    }
+    .infor-title {
+        font-size: 11px;
+    }
+    .signature {
+        width: 46%;
+        height: 8%;
+    }
+    .member-detail-right {
+        left: 124px;
+        padding-right: 5px;
+    }
+    .member-detail-right-context {
+        font-size: 9px;
+    }
+    .member-detail-right-title {
+        margin: 4px 0;
+        font-size: 11px;
     }
 }
 

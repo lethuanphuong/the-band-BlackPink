@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackpink</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg" />
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./owl.carousel.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -18,138 +23,757 @@
             </button>
         </a> 
         <div id="header">
-            <ul id="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#band">Band</a></li>
-                <li><a href="#tour">Tour</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li>
-                    <a href="">
-                        More
-                        <i class="nav-arrow-down ti-angle-down"></i>
-                    </a>
-                    <ul class="subnav">
-                        <li><a href="#">Merchandise</a></li>
-                        <li><a href="#">Extras</a></li>
-                        <li><a href="#">Media</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <i class="ti-menu bar"></i>
+            <div class="wrap-nav">
+                <ul id="nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#band">Band</a></li>
+                    <li><a href="#tour">Tour</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="">
+                            More
+                            <i class="nav-arrow-down ti-angle-down"></i>
+                        </a>
+                        <ul class="subnav">
+                            <li><a href="#">Merchandise</a></li>
+                            <li><a href="#">Extras</a></li>
+                            <li><a href="#">Media</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $(".bar").click(function(){
+                        $(".wrap-nav").show();
+                    })
+                    $("#nav li").click(function(){
+                        if($("#main").width()< 740){
+                            $(".wrap-nav").hide();
+                        }
+                        else{
+                            $(".wrap-nav").show();
+                        }
+                    })
+                })
+            </script>
             <div class="search-btn" >
                 <i class="search-icon ti-search"></i>
             </div>
         </div>
-
-        <div id="slider">
-            <img id="img" onclick="handleClick()" src="./assets/img/blackpink1.jpg" alt="blackpink">
-          
-           <script>
-                var index =1;
-                function handleClick () {
-                    var imgs=['./assets/img/blackpink1.jpg','./assets/img/blackpink2.jpg','./assets/img/blackpink3.jpg','./assets/img/blackpink4.jpg','./assets/img/blackpink5.jpg']
-                    document.getElementById('img').src = imgs[index]
-                    index++
-                    if(index ===5) {
-                        index = 0
-                    }
-                }
-                setInterval(handleClick,4000)
-            </script>
+        <div class="owl-carousel owl-theme owl-loaded">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
+                    <div class="owl-item">
+                        <img  src="./assets/img/blackpink1.jpg" alt="blackpink1">
+                    </div>
+                    <div class="owl-item">
+                        <img  src="./assets/img/blackpink2.jpg" alt="blackpink2">
+                    </div>
+                    <div class="owl-item">
+                        <img  src="./assets/img/blackpink3.jpg" alt="blackpink3">
+                    </div>
+                    <div class="owl-item">
+                        <img  src="./assets/img/blackpink4.jpg" alt="blackpink4">
+                    </div>
+                    <div class="owl-item">
+                        <img  src="./assets/img/blackpink5.jpg" alt="blackpink5">
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                items:1,
+                loop:true,
+                margin:10,
+                autoplay:true,
+                nav:true,
+                autoplayTimeout:5000,
+            });
+            
+             // var index =1;
+             // function handleClick () {
+             //     var imgs=['./assets/img/blackpink1.jpg','./assets/img/blackpink2.jpg','./assets/img/blackpink3.jpg','./assets/img/blackpink4.jpg','./assets/img/blackpink5.jpg']
+             //     document.getElementById('img').src = imgs[index]
+             //     index++
+             //     if(index ===5) {
+             //         index = 0
+             //     }
+             // }
+             //  setInterval(handleClick,3000)
 
+        </script>
+        <script>
+            $(document).ready(function(){
+                $(".jisoo").click(function(){
+                    $(".member-jisoo").show();
+                })
+                $(".lisa").click(function(){
+                    $(".member-lisa").show();
+                })
+                $(".rose").click(function(){
+                    $(".member-rose").show();
+                })
+                $(".jenie").click(function(){
+                    $(".member-jenie").show();
+                })
+                $(".modal-member-overlay").click(function(){
+                    $(".member-detail").click(function(e){
+                        e.stopPropagation()
+                    })
+                    $(".modal-member-overlay").hide();
+                })
+                $(".member-detail-close").click(function(){
+                    $(".modal-member-overlay").hide();
+                })
+            })
+        </script>
         <div id="content">
             <div id = "band" class="content-section">
                 <h2 class="section-heading">The Band</h2>
                 <p class="section-sub-heading">We love misic</p>
                 <p class="about-text">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <div class="members">
-                    <div class="members-item">
+                    <div class="members-item jisoo">
                         <p class="members-name">Jisoo</p>
                         <img class="img" src="./assets/img/jisoo.png" alt="jisoo">
                     </div>
-                    <div class="members-item">
+                    <div class="members-item lisa">
                         <p class="members-name">Lisa</p>
                         <img class="img" src="./assets/img/lisa.jpg" alt="Lisa">
                     </div>
-                    <div class="members-item">
+                    <div class="members-item rose">
                         <p class="members-name">Rosé</p>
                         <img class="img" src="./assets/img/Rose.jpg" alt="Rosé">
                     </div>
-                    <div class="members-item">
+                    <div class="members-item jenie">
                         <p class="members-name">Jenie</p>
                         <img class="img" src="./assets/img/jenie.jpg" alt="Jenie">
                     </div>
                 </div>
             </div>
-            <div id="tour" class="tour-section">
-                <div class="content-section">
-                    <h2 class="text-while section-heading">TOUR DATES</h2>
-                    <p class="text-while section-sub-heading">Remember to book your tickets!</p>
-                    <ul class="tickets-section">
-                        <li>September <span class="text-while sould-out"> Sold out</span></li>
-                        <li>October <span class="text-while sould-out">Sold out</span></li>
-                        <li>November <span class="text-while quantity">3</span></li>
-                    </ul>
-                    <div class="places-list">
-                        <div class="places-item">
-                            <img src="./assets/img/newyork.jpg" alt="newyork" class="place-img">
-                            <div class="place-content">
-                                <h3 class="place-heading">New York</h3>
-                                <p class="place-time">Fri 27 Nov 2016</p>
-                                <p class="context">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button  class="place-buy-btn js-buy-tickets ">Buy tickets</button>
-                            </div>
+            <div class="modal-member-overlay member-jisoo">
+                <div class="member-detail ">
+                    <div class="member-detail-left">
+                        <h3 class="member-detail-name">
+                            Jisoo
+                        </h3>
+                        <img class="member-detail-img" src="./assets/img/jisoo-detail.jpg" alt="jisoo">
+                        <p class="img-decription">
+                            Jisoo in March 2022
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Born
+                            </b>
+                            <p class="infor-right">
+                                <span>Kim Ji-soo</span><br>
+                                <span>January 3, 1995 (age 27)</span><br>
+                                <span>Gunpo, Gyeonggi</span><br>
+                                <span>Province, South Korea</span>
+                            </p>
                         </div>
-                        <div class="places-item">
-                            <img src="./assets/img/paris.jpg" alt="paris" class="place-img">
-                            <div class="place-content">
-                                <h3 class="place-heading">Paris</h3>
-                                <p class="place-time">Sat 28 Nov 2016</p>
-                                <p class="context">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button  class="place-buy-btn js-buy-tickets ">Buy tickets</button>
-                            </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Occupation
+                            </b>
+                            <p class="infor-right">
+                                <span>Singeractress</span>
+                            </p>
                         </div>
-                        <div class="places-item">
-                            <img src="./assets/img/sanfran.jpg" alt="San Francisco" class="place-img">
-                            <div class="place-content">
-                                <h3 class="place-heading">San Francisco</h3>
-                                <p class="place-time">Sun 29 Nov 2016</p>
-                                <p class="context">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button  class="place-buy-btn js-buy-tickets ">Buy tickets</button>
-                            </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Years active
+                            </b>
+                            <p class="infor-right">
+                                <span>2016–present</span>
+                            </p>
+                        </div>
+                        <p class="infor-title">
+                            Musical career
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Origin
+                            </b>
+                            <p class="infor-right">
+                                <span>Seoul</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Genres
+                            </b>
+                            <p class="infor-right">
+                                <span>K-pop dance-pop hip hop</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Instruments
+                        </b>
+                        <p class="infor-right">
+                            <span>Vocals</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Labels
+                        </b>
+                        <p class="infor-right">
+                            <span>YG Interscope</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Associated acts
+                        </b>
+                        <p class="infor-right">
+                            <span>Blackpink YG FamilyYG Stage</span>
+                        </p>
+                        </div>
+                        <p class="infor-title">
+                        Korean name
+                        </p>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Hangul
+                        </b>
+                        <p class="infor-right">
+                            <span>김지수</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Revised Romanization
+                        </b>
+                        <p class="infor-right">
+                            <span>Gim Ji-su</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            McCune–Reischauer
+                        </b>
+                        <p class="infor-right">
+                            <span>Kim Chisu</span>
+                        </p>
+                        </div>
+                        <p class="infor-title">
+                        Signature
+                        </p>
+                        <img src="./assets/img/signature-jisoo.png" alt="signature-jisoo" class="signature">
+                    </div>
+                    <div class="member-detail-right">
+                        <button class="member-detail-close">
+                            X
+                        </button>
+                        <div class="wrap-detail-right">
+                            <p class="member-detail-right-context">
+                                Kim Ji-soo (Korean: 김지수; born January 3, 1995), known mononymously as Jisoo, is a South Korean singer and actress. She debuted as a member of the girl group Blackpink, formed by YG Entertainment, in August 2016. After making her acting debut with a cameo role in the 2015 series The Producers, she played her first leading role in the JTBC series Snowdrop (2021–22).
+                            </p>
+                            <p class="member-detail-right-title">
+                                Early life
+                            </p>
+                            <p class="member-detail-right-context">
+                                Kim Ji-soo was born on January 3, 1995 in Gunpo, Gyeonggi Province, South Korea. She has an older brother and sister. As a child, she played basketball and practiced Taekwondo. She was a fan of the Korean boy group TVXQ.[8] Jisoo attended high school at the School of Performing Arts Seoul; in 11th grade, she joined a drama club at the school and earned more experience in the entertainment industry by attending auditions.
+                            </p>
+                            <p class="member-detail-right-title">
+                                2011–2016: Career beginnings and debut with Blackpink
+                            </p>
+                            <p class="member-detail-right-context">
+                                In 2011, Jisoo joined YG Entertainment as a trainee after passing its auditions. In October 2014, she appeared in Epik High's music video for "Spoiler + Happen Ending" as a heartbroken girl. The same year, she starred in Hi Suhyun's music video for "I'm Different" as Bobby's girlfriend. In 2015, Jisoo made a cameo appearance in the KBS2 drama The Producers with labelmates Sandara Park of 2NE1 and Kang Seung-yoon of Winner.<br>
+                                Jisoo debuted as the oldest of the four members of girl group Blackpink on August 8, 2016, alongside Jennie, Rosé and Lisa, with the release of their single album Square One.
+                            </p>
+                            <p class="member-detail-right-title">
+                                2017–present: Solo endeavors and acting
+                            </p>
+                            <p class="member-detail-right-context">
+                                From 2017 to 2018, Jisoo joined Inkigayo as a host alongside Got7's Jin-young and NCT's Doyoung. She first ventured into acting in 2019 with a short cameo appearance in the tvN fantasy drama Arthdal Chronicles. In 2020, Jisoo co-wrote the lead single "Lovesick Girls" of Blackpink's first studio album The Album.<br>
+                                Jisoo had her first leading role in 2021 with JTBC series Snowdrop, starring alongside Jung Hae-in. She played a college freshman, Eun Yeong-ro, who is held hostage by her love interest. It garnered relatively low ratings due to controversy surrounding allegations of historical distortion, which prompted a review by the Korea Communications Standards Commission.The investigation concluded that the content of the drama could not be viewed as a distortion of history. The show ranked number one on Disney+ in four out of the five countries it was made available in, including South Korea.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
-            <div id="contact" class="content-section">
-                <h2 class="section-heading">CONTACT</h2>
-                <p class="section-sub-heading">Fan? Drop a note!</p>
-                <div class="row contact-content">
-                    <div class="col col-half">
-                        <p class="contact-p"><i class="ti-location-pin contact-icon"></i>Seoulo, Korea</p>
-                        <p class="contact-p"><i class="ti-mobile contact-icon"></i>Phone: +82 02-312-3456</p>
-                        <p class="contact-p"><i class="ti-email contact-icon"></i>Email: mail@mail.com</p>
+            <div class="modal-member-overlay member-lisa">
+                <div class="member-detail ">
+                    <div class="member-detail-left">
+                        <h3 class="member-detail-name">
+                            Lisa
+                        </h3>
+                        <img class="member-detail-img" src="./assets/img/lisa-detail.jpg" alt="jisoo">
+                        <p class="img-decription">
+                            Lisa for Vogue Taiwan in June 2021
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Born
+                            </b>
+                            <p class="infor-right">
+                                <span>Pranpriya Manobal</span><br>
+                                <span>March 27, 1997 (age 25)</span><br>
+                                <span>Buriram, Thailand</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Occupation
+                            </b>
+                            <p class="infor-right">
+                                <span>Rapper singer dancer</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Years active
+                            </b>
+                            <p class="infor-right">
+                                <span>2016–present</span>
+                            </p>
+                        </div>
+                        <p class="infor-title">
+                            Musical career
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Origin
+                            </b>
+                            <p class="infor-right">
+                                <span>South Korea</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Genres
+                            </b>
+                            <p class="infor-right">
+                                <span>K-pop dance-pop hip hop</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Instruments
+                        </b>
+                        <p class="infor-right">
+                            <span>Vocals</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Labels
+                        </b>
+                        <p class="infor-right">
+                            <span>YG Interscope</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Associated acts
+                        </b>
+                        <p class="infor-right">
+                            <span>Blackpink YG Family Stage</span>
+                        </p>
+                        </div>
+                        
+                        <p class="infor-title">
+                        Signature
+                        </p>
+                        <img src="./assets/img/signature-lisa.png" alt="signature-lisa" class="signature">
                     </div>
-                    <div class="col col-half contact-form">
-                        <form action="">
-                            <div class="row ">
-                                <div class="col col-half">
-                                    <input type="text" name="" id="" required class="form-control " placeholder="Name">
-                                </div>
-                                <div class="col col-half">
-                                    <input type="email" name="" id="" required class="form-control " placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="row mt-8">
-                                <div class="col col-full">
-                                    <input type="text" name="" id="" required class="form-control " placeholder="Message">
-                                </div>
-                            </div>
-                            <input class="mt-16 form-submit-btn" type="submit" value="SEND">
-                        </form>
-                    </div> 
+                    <div class="member-detail-right">
+                        <button class="member-detail-close">
+                            X
+                        </button>
+                        <div class="wrap-detail-right">
+                            <p class="member-detail-right-context">
+                                Lalisa Manobal (also spelled Manoban; born Pranpriya Manobal, March 27, 1997), known mononymously as Lisa, is a Thai rapper, singer and dancer based in South Korea. She is a member of the South Korean girl group Blackpink formed by YG Entertainment.<br>
+                                Lisa made her solo debut with her single album Lalisa in September 2021. The album sold over 736,000 copies in its release week in South Korea, making her the first female artist to do so. The music video for its lead single of the same name recorded 73.6 million views on YouTube in first 24 hours of its release, becoming the most-viewed music video in the first 24 hours on the platform by a solo artist.
+                            </p>
+                            <p class="member-detail-right-title">
+                                Early life and career beginnings
+                            </p>
+                            <p class="member-detail-right-context">
+                                Born as Pranpriya Manobal on March 27, 1997 in Buriram Province, Thailand, she later legally changed her name to Lalisa, meaning the one being praised, on the advice of a fortune teller in order to bring in prosperity. As an only child, she was raised by her Thai mother and Swiss stepfather. Lisa's mother is named Chitthip Brüschweiler. Her stepfather is Marco Brüschweiler, a renowned chef, currently active in Thailand. Lisa completed secondary education at Praphamontree School I and II.<br>
+                                In 2010, 13-year-old Lisa auditioned to join South Korean record label YG Entertainment in Thailand. From a young age, Lisa gained an interest in K-pop idols, namely admiring artists Big Bang and 2NE1, and wished to someday follow a similar path. Among the 4,000 applicants, she was the only individual to qualify, which prompted then CEO, Yang Hyun-suk into offering Lisa a chance to become a YG Entertainment trainee. Lisa also impressed one of the judges, Danny Im of 1TYM, at the auditions, with him later praising her on-stage confidence and her off-stage attitude.
+                            </p>
+                            <p class="member-detail-right-title">
+                                2016–present: Debut with Blackpink and solo ventures
+                            </p>
+                            <p class="member-detail-right-context">
+                                In August 2016, Lisa debuted as one of four members of South Korean girl group Blackpink, as well as the first non-ethnically Korean to debut under the agency. Blackpink debuted with single album Square One with lead singles "Whistle" and "Boombayah". "Whistle" achieved a perfect "all-kill", topping all South Korean charts upon debut. As of October 2020, the group has released two studio albums, Blackpink in Your Area and The Album, three extended plays, Blackpink, Square Up and Kill This Love, and two single albums, Square One and Square Two.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="modal-member-overlay member-jenie">
+                <div class="member-detail ">
+                    <div class="member-detail-left">
+                        <h3 class="member-detail-name">
+                            Jennie
+                        </h3>
+                        <img class="member-detail-img" src="./assets/img/jenie-detail.jpg" alt="jenie">
+                        <p class="img-decription">
+                            Jennie in March 2021
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Born
+                            </b>
+                            <p class="infor-right">
+                                <span>Jennie Kim</span><br>
+                                <span>January 16, 1996 (age 26)</span><br>
+                                <span>Seoul, South Korea</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Occupation
+                            </b>
+                            <p class="infor-right">
+                                <span>Singer rapper</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Years active
+                            </b>
+                            <p class="infor-right">
+                                <span>2012–2013 2016–present</span>
+                            </p>
+                        </div>
+                        <p class="infor-title">
+                            Musical career
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Origin
+                            </b>
+                            <p class="infor-right">
+                                <span>Seoul</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Genres
+                            </b>
+                            <p class="infor-right">
+                                <span>K-pop dance-pop hip hop</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Instruments
+                        </b>
+                        <p class="infor-right">
+                            <span>Vocals</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Labels
+                        </b>
+                        <p class="infor-right">
+                            <span>YG Interscope</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Associated acts
+                        </b>
+                        <p class="infor-right">
+                            <span>Blackpink YG FamilyYG Stage</span>
+                        </p>
+                        </div>
+                        <p class="infor-title">
+                        Korean name
+                        </p>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Hangul
+                        </b>
+                        <p class="infor-right">
+                            <span>김제니</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Hanja
+                        </b>
+                        <p class="infor-right">
+                            <span>金珍妮</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Revised Romanization
+                        </b>
+                        <p class="infor-right">
+                            <span>Gim Je-ni</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                McCune–Reischauer
+                            </b>
+                            <p class="infor-right">
+                                <span>	Kim Cheni</span>
+                            </p>
+                            </div>
+                        <p class="infor-title">
+                        Signature
+                        </p>
+                        <img src="./assets/img/signature-jenie.png" alt="signature-jenie" class="signature">
+                    </div>
+                    <div class="member-detail-right">
+                        <button class="member-detail-close">
+                            X
+                        </button>
+                        <div class="wrap-detail-right">
+                            <p class="member-detail-right-context">
+                                Jennie Kim (Korean: 김제니; born January 16, 1996), known mononymously as Jennie, is a South Korean singer and rapper. Born and raised in South Korea, Jennie studied in New Zealand for five years before returning to South Korea in 2010. She debuted as a member of the girl group Blackpink, formed by YG Entertainment, in August 2016. In November 2018, Jennie made her debut as a solo artist with the single "Solo". The song was a commercial success domestically and internationally, topping both the Gaon Digital Chart and Billboard's World Digital Songs chart.
+                            </p>
+                            <p class="member-detail-right-title">
+                                Early life
+                            </p>
+                            <p class="member-detail-right-context">
+                                Jennie Kim was born in Cheongdam-dong, Gangnam-gu, Seoul on January 16, 1996, as an only child. She initially attended Cheongdam Elementary School in Seoul before moving to New Zealand. When she was eight years old, she went on a trip with her family to Australia and New Zealand. When her mother asked her if she liked New Zealand and wanted to stay, Jennie replied "yes"; one year later, she was sent to study at Waikowhai Intermediate School in Auckland and lived with a home-stay family. Jennie spoke about her experience learning a new language on the MBC's documentary English, Must Change to Survive (2006). During her adolescent years, she dreamed of becoming a ballet dancer. After completing intermediate, she enrolled at ACG Parnell College.
+                            </p>
+                            <p class="member-detail-right-title">
+                                2012–2017: Career beginnings and debut with Blackpink
+                            </p>
+                            <p class="member-detail-right-context">
+                                On April 10, 2012, Jennie was introduced through a photo titled "Who's that girl?" via the official blog of YG Entertainment. Her photograph gained interest from netizens, soon becoming the most searched topic on portal sites under the name "Mystery Girl".
+                            </p>
+                            <p class="member-detail-right-title">
+                                2018–present: Rising popularity and solo debut
+                            </p>
+                            <p class="member-detail-right-context">
+                                Jennie appeared with Blackpink member Jisoo on Running Man in July 2018. A video of Jennie crying after going through a horror room with Lee Kwang-soo went viral in South Korea, gaining over one million views on one site and a total of over three million views across multiple platforms, VODs, and social media. She was subsequently selected as one of the best variety stars of 2018 following her discovery on Running Man. Jennie was invited to the show again after attracting attention during her previous appearance. Jennie was said to have ranked first among casting choices and received multiple offers from different variety shows. On October 1, Jennie was confirmed to join as a cast member for SBS' new variety show Village Survival, the Eight, her first permanent casting in a television series.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-member-overlay member-rose">
+                <div class="member-detail ">
+                    <div class="member-detail-left">
+                        <h3 class="member-detail-name">
+                            Rose
+                        </h3>
+                        <img class="member-detail-img" src="./assets/img/rose-detail.jpg" alt="rose">
+                        <p class="img-decription">
+                            Rosé in March 2021
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Born
+                            </b>
+                            <p class="infor-right">
+                                <span>Roseanne Park</span><br>
+                                <span>11 February 1997 (age 25)</span><br>
+                                <span>Auckland, New Zealand</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Other names
+                            </b>
+                            <p class="infor-right">
+                                <span>Park Chae-young</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Occupation
+                            </b>
+                            <p class="infor-right">
+                                <span>Singer dancer</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Years active
+                            </b>
+                            <p class="infor-right">
+                                <span>2012 2016–present</span>
+                            </p>
+                        </div>
+                        <p class="infor-title">
+                            Musical career
+                        </p>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Origin
+                            </b>
+                            <p class="infor-right">
+                                <span>South Korea</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                            <b class="infor-left">
+                                Genres
+                            </b>
+                            <p class="infor-right">
+                                <span>K-pop</span>
+                            </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Instruments
+                        </b>
+                        <p class="infor-right">
+                            <span>Vocals</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Labels
+                        </b>
+                        <p class="infor-right">
+                            <span>YG Interscope</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Associated acts
+                        </b>
+                        <p class="infor-right">
+                            <span>Blackpink YG FamilyYG Stage</span>
+                        </p>
+                        </div>
+                        <p class="infor-title">
+                        Korean name
+                        </p>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Hangul
+                        </b>
+                        <p class="infor-right">
+                            <span>박채영</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            Revised Romanization
+                        </b>
+                        <p class="infor-right">
+                            <span>Bak Chae-yeong</span>
+                        </p>
+                        </div>
+                        <div class="infor">
+                        <b class="infor-left">
+                            McCune–Reischauer
+                        </b>
+                        <p class="infor-right">
+                            <span>Pak Ch'aeyŏng</span>
+                        </p>
+                        </div>
+                        <p class="infor-title">
+                        Signature
+                        </p>
+                        <img src="./assets/img/signature-rose.png" alt="signature-rose" class="signature">
+                    </div>
+                    <div class="member-detail-right">
+                        <button class="member-detail-close">
+                            X
+                        </button>
+                        <div class="wrap-detail-right">
+                            <p class="member-detail-right-context">
+                                Roseanne Park (born 11 February 1997), known mononymously as Rosé (Korean: 로제), is a Korean-New Zealand singer and dancer based in South Korea. Born in New Zealand and raised in Australia, Rosé signed with South Korean label YG Entertainment following a successful audition in 2012 and trained for four years before debuting as a member of the girl group Blackpink in August 2016.<br>
+                                In March 2021, Rosé made her solo debut with her single album R. The album sold 448,089 copies in its first week, the highest for a Korean female soloist. Lead single "On the Ground" was also a commercial success, topping the Billboard Global 200 and peaking in the top five domestically.
+                            </p>
+                            <p class="member-detail-right-title">
+                                1997–2015: Early life and career beginnings
+                            </p>
+                            <p class="member-detail-right-context">
+                                Roseanne Park (Korean: 박채영; Park Chae-young) was born on 11 February 1997 in Auckland, New Zealand, to South Korean immigrant parents. She has an older sister. In 2004, at the age of seven, Rosé and her family moved to Melbourne, Australia. She attended Kew East Primary School, graduating in 2009, and completed secondary education at Canterbury Girls' Secondary College in Melbourne, studying law. She began singing and learned to play guitar and piano as a child and performed in church choirs.<br>
+                                In 2012, at age 15, Rosé attended an audition in Sydney, Australia for South Korean record label YG Entertainment at her father's suggestion, ranking first among 700 participants. She enjoyed the label's music greatly, citing they had all the "cool" groups. Within two months, Rosé dropped out of school, signed with the label as a trainee, and moved to Seoul, South Korea. She initially presumed her father's idea was a joke due to the distance and difficulty of becoming a singer overseas<br>
+                                The same year, Rosé was given an opportunity to feature on labelmate G-Dragon's song "Without You" from his extended play (EP) One of a Kind (2012). Her name was not publicised at the time of release, her credit revealed only following her announcement as a member of Blackpink. The song peaked at number ten on South Korea's Gaon Music Chart and at number 15 on the Billboard Korea K-pop Hot 100.
+                            </p>
+                            <p class="member-detail-right-title">
+                                2016–present: Debut with Blackpink and R
+                            </p>
+                            <p class="member-detail-right-context">
+                                Rosé trained at YG Entertainment for four years before she was revealed as the final member of the girl group Blackpink on 22 June 2016. The group debuted on 8 August 2016 with the single album Square One, which featured the singles "Whistle" and "Boombayah".<br>
+                                Rosé appeared on a variety of broadcast programs, such as King of Masked Singer. Her vocal performance on the show was met with warm reception by the audience, to which Rosé commented that she "didn't know if the audience would like [her] singing" and that she felt "happy and relieved" at the positive result.
+                            </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="tour" class="tour-section">
+            <div class="content-section">
+                <h2 class="text-while section-heading">TOUR DATES</h2>
+                <p class="text-while section-sub-heading">Remember to book your tickets!</p>
+                <ul class="tickets-section">
+                    <li>September <span class="text-while sould-out"> Sold out</span></li>
+                    <li>October <span class="text-while sould-out">Sold out</span></li>
+                    <li>November <span class="text-while quantity">3</span></li>
+                </ul>
+                <div class="places-list">
+                    <div class="places-item">
+                        <img src="./assets/img/newyork.jpg" alt="newyork" class="place-img">
+                        <div class="place-content">
+                            <h3 class="place-heading">New York</h3>
+                            <p class="place-time">Fri 27 Nov 2016</p>
+                            <p class="context">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                            <button  class="place-buy-btn js-buy-tickets ">Buy tickets</button>
+                        </div>
+                    </div>
+                    <div class="places-item">
+                        <img src="./assets/img/paris.jpg" alt="paris" class="place-img">
+                        <div class="place-content">
+                            <h3 class="place-heading">Paris</h3>
+                            <p class="place-time">Sat 28 Nov 2016</p>
+                            <p class="context">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                            <button  class="place-buy-btn js-buy-tickets ">Buy tickets</button>
+                        </div>
+                    </div>
+                    <div class="places-item">
+                        <img src="./assets/img/sanfran.jpg" alt="San Francisco" class="place-img">
+                        <div class="place-content">
+                            <h3 class="place-heading">San Francisco</h3>
+                            <p class="place-time">Sun 29 Nov 2016</p>
+                            <p class="context">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                            <button  class="place-buy-btn js-buy-tickets ">Buy tickets</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="contact" class="content-section">
+            <h2 class="section-heading">CONTACT</h2>
+            <p class="section-sub-heading">Fan? Drop a note!</p>
+            <div class="row contact-content">
+                <div class="col col-half">
+                    <p class="contact-p"><i class="ti-location-pin contact-icon"></i>Seoulo, Korea</p>
+                    <p class="contact-p"><i class="ti-mobile contact-icon"></i>Phone: +82 02-312-3456</p>
+                    <p class="contact-p"><i class="ti-email contact-icon"></i>Email: mail@mail.com</p>
+                </div>
+                <div class="col col-half contact-form">
+                    <form action="">
+                        <div class="row ">
+                            <div class="col col-half">
+                                <input type="text" name="" id="" required class="form-control " placeholder="Name">
+                            </div>
+                            <div class="col col-half">
+                                <input type="email" name="" id="" required class="form-control " placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="row mt-8">
+                            <div class="col col-full">
+                                <input type="text" name="" id="" required class="form-control " placeholder="Message">
+                            </div>
+                        </div>
+                        <input class="mt-16 form-submit-btn" type="submit" value="SEND">
+                    </form>
+                </div> 
             </div>
         </div>
 
